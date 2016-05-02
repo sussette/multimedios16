@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: May 02, 2016 at 10:00 PM
+-- Generation Time: May 03, 2016 at 12:31 AM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -17,48 +17,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_personal`
+-- Table structure for table `tb_deptos`
 --
 
-CREATE TABLE `tb_personal` (
-  `id_personal` int(10) NOT NULL,
-  `nombre` text NOT NULL,
-  `apellido` text NOT NULL,
+CREATE TABLE `tb_deptos` (
+  `id_depto` int(10) NOT NULL,
   `depto` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tb_personal`
+-- Dumping data for table `tb_deptos`
 --
 
-INSERT INTO `tb_personal` (`id_personal`, `nombre`, `apellido`, `depto`) VALUES
-(1, 'foo@bar.com', 'foo@bar.com', '123456'),
-(2, 'foo@bar.com', 'foo@bar.com', 'foo'),
-(3, 'foo@bar.com', 'foo@bar.com', 'foo'),
-(4, 'foo@bar.com', 'foo@bar.com', 'foo'),
-(5, 'foo@bar.com', 'foo@bar.com', 'foo'),
-(6, 'foo@bar.com', 'foo@bar.com', 'foo'),
-(7, 'foo@bar.com', 'foo@bar.com', 'foo'),
-(8, 'foo@bar.com', 'foo@bar.com', 'foo'),
-(9, 'foo@bar.com', 'foo@bar.com', 'foo'),
-(10, 'qwerty', 'qwerty', 'qwerty');
+INSERT INTO `tb_deptos` (`id_depto`, `depto`) VALUES
+(1, 'Contabilidad'),
+(2, 'Proveeduria'),
+(3, 'Seguridad'),
+(4, 'Informatica'),
+(5, 'Direccion'),
+(6, 'RH');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `tb_personal`
+-- Indexes for table `tb_deptos`
 --
-ALTER TABLE `tb_personal`
-  ADD PRIMARY KEY (`id_personal`);
+ALTER TABLE `tb_deptos`
+  ADD PRIMARY KEY (`id_depto`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `tb_personal`
+-- AUTO_INCREMENT for table `tb_deptos`
 --
-ALTER TABLE `tb_personal`
-  MODIFY `id_personal` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+ALTER TABLE `tb_deptos`
+  MODIFY `id_depto` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;

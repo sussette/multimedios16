@@ -25,7 +25,7 @@ $data = $database->select("tb_personal", "*");
             <?php
                 $len = count($data);
                 for($i=0; $i<$len; $i++){
-                    echo  "<tr><td>".$data[$i]["depto"]."</td><td>".$data[$i]["nombre"]."</td><td>".$data[$i]["apellido"]."</td><td><a href='editar.php?id=".$data[$i]["id_personal"]."'>Editar</a> <a href='eliminar.php?id=".$data[$i]["id_personal"]."'>Eliminar</a></td></tr>";
+                    echo  "<tr><td>".$data[$i]["id_depto"]."</td><td>".$data[$i]["nombre"]."</td><td>".$data[$i]["apellido"]."</td><td><a href='editar.php?id=".$data[$i]["id_personal"]."'>Editar</a> <a href='eliminar.php?id=".$data[$i]["id_personal"]."'>Eliminar</a></td></tr>";
                 }
             ?>
         </table>

@@ -10,12 +10,6 @@ $database = new medoo([
 	'password' => 'root',
 	'charset' => 'utf8'
 ]);
- 
-/*$database->insert("tb_personal", [
-	"depto" => "foo",
-	"nombre" => "foo@bar.com",
-	"apellido" => "foo@bar.com"
-]);*/
 
 if($_GET){
     $data = $database->select(
@@ -40,29 +34,51 @@ if($_POST){
     header("location:list.php");
 }
 
+$deptos = $database->select("tb_deptos", "*");
+
 ?>
 <html>
     
-    <head></head>
+    <head>
+        
+        
+    </head>
     <body>
         <form action="editar.php" method="post">
-           <label>Departamento</label>
-            <input type="text" name="depto" value='<?php echo $data[0]["depto"] ?>'>
-            <label>Nombre</label>
-            <input type="text" name="nombre" value='<?php echo $data[0]["nombre"] ?>'>
-            <label>Apellido</label>
-            <input type="text" name="apellido" value='<?php echo $data[0]["apellido"] ?>'>
-            <input type="hidden" name="id" value='<?php echo $data[0]["id_personal"] ?>'>
-            <input type="submit">
+           <table>
+               <tr>
+                   <td><label>Departamento</label></td>
+                   <td><select name="depto" id="">
+                
+                        <?php
+
+                            $len = count($deptos);
+                            for($i=0; $i<$len; $i++){
+                                if($deptos[$i]["id_depto"] == $data[0]["id_depto"]){
+                                    echo "<option value=".$deptos[$i]["id_depto"]." selected>".$deptos[$i]["depto"]."</option>";
+                                }else{
+                                   echo "<option value=".$deptos[$i]["id_depto"].">".$deptos[$i]["depto"]."</option>"; 
+                                }
+
+                            }
+                        ?>
+
+                    </select></td>
+               </tr>
+               <tr>
+                   <td><label>Nombre</label></td>
+                   <td><input type="text" name="nombre" value='<?php echo $data[0]["nombre"] ?>'></td>
+               </tr>
+               <tr>
+                   <td><label>Apellido</label></td>
+                   <td><input type="text" name="apellido" value='<?php echo $data[0]["apellido"] ?>'></td>
+               </tr>
+                <tr>
+                    <td><input type="hidden" name="id" value='<?php echo $data[0]["id_personal"] ?>'></td>
+                    <td><input type="submit" value="EDITAR">
+            <input type="button" value="CANCELAR" onclick="history.back();"></td>
+                </tr>
             
         </form>
     </body>
 </html>
-
-
-
-
-
-
-
-
