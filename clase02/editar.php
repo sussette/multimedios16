@@ -21,9 +21,9 @@ if($_GET){
     $data = $database->select(
         "tb_personal", 
         "*",
-        [
-            "id_personal" => $_GET["id"]
-        ]);
+    [
+        "id_personal" => $_GET["id"]
+    ]);
 }
 
 if($_POST){
@@ -37,6 +37,7 @@ if($_POST){
         ],[
             "id_personal" => $_POST["id"]
         ]);
+    header("location:list.php");
 }
 
 ?>
