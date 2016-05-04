@@ -15,10 +15,12 @@ $database = new medoo([
 if($_POST){
     
     $database->insert("tb_personal", [
-        "depto" => $_POST["depto"],
+        "id_depto" => $_POST["depto"],
         "nombre" => $_POST["nombre"],
         "apellido" => $_POST["apellido"]
     ]);
+    
+    echo "depto-> ".$_POST["depto"];
 }
 
 $deptos = $database->select("tb_deptos", "*");
