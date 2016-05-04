@@ -25,7 +25,7 @@ if($_POST){
     $database->update(
         "tb_personal", 
         [
-            "depto" => $_POST["depto"],
+            "id_depto" => $_POST["depto"],
             "nombre" => $_POST["nombre"],
             "apellido" => $_POST["apellido"]
         ],[
