@@ -1,32 +1,38 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.10
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:8889
--- Generation Time: May 04, 2016 at 11:27 PM
--- Server version: 5.5.42
--- PHP Version: 5.6.10
+-- Servidor: localhost
+-- Tiempo de generación: 09-05-2016 a las 18:36:56
+-- Versión del servidor: 5.6.20-log
+-- Versión de PHP: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- Database: `test`
+-- Base de datos: `test`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_deptos`
+-- Estructura de tabla para la tabla `tb_deptos`
 --
 
-CREATE TABLE `tb_deptos` (
-  `id_depto` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tb_deptos` (
+`id_depto` int(10) NOT NULL,
   `depto` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
--- Dumping data for table `tb_deptos`
+-- Volcado de datos para la tabla `tb_deptos`
 --
 
 INSERT INTO `tb_deptos` (`id_depto`, `depto`) VALUES
@@ -40,52 +46,66 @@ INSERT INTO `tb_deptos` (`id_depto`, `depto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_personal`
+-- Estructura de tabla para la tabla `tb_personal`
 --
 
-CREATE TABLE `tb_personal` (
-  `id_personal` int(10) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tb_personal` (
+`id_personal` int(10) NOT NULL,
   `nombre` text NOT NULL,
   `apellido` text NOT NULL,
-  `id_depto` int(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `id_depto` int(10) NOT NULL,
+  `gender` varchar(1) NOT NULL,
+  `profile` text NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
--- Dumping data for table `tb_personal`
+-- Volcado de datos para la tabla `tb_personal`
 --
 
-INSERT INTO `tb_personal` (`id_personal`, `nombre`, `apellido`, `id_depto`) VALUES
-(1, 'foo@bar.com', 'foo@bar.com', 1),
-(7, 'foo@bar.com', 'foo@bar.com', 2),
-(10, 'qwerty', 'qwerty', 3);
+INSERT INTO `tb_personal` (`id_personal`, `nombre`, `apellido`, `id_depto`, `gender`, `profile`) VALUES
+(1, 'Ricky', 'Lucas', 1, 'm', 'profile/rlucas.jpg'),
+(7, 'Martha', 'Nelson', 2, 'f', 'profile/mnelson.jpg'),
+(10, 'Luis', 'Brown', 3, 'm', 'profile/lbrown.jpg'),
+(11, 'Pedro', 'Burke', 3, 'm', 'profile/pburke.jpg'),
+(12, 'Kurt', 'Collins', 4, 'm', 'profile/kcollins.jpg'),
+(13, 'Owen', 'Medina', 4, 'm', 'profile/omedina.jpg'),
+(14, 'Amelia', 'Wallace', 5, 'f', 'profile/awallace.jpg'),
+(15, 'Penny', 'Larson', 6, 'f', 'profile/plarson.jpg'),
+(16, 'Adrian', 'Neal', 6, 'm', 'profile/aneal.jpg'),
+(17, 'Sophia', 'Bates', 2, 'f', 'profile/sbates.jpg'),
+(18, 'Bella', 'Ruiz', 5, 'f', 'profile/bruiz.jpg'),
+(19, 'Leslie', 'Newman', 6, 'f', 'profile/lnewman.jpg');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `tb_deptos`
+-- Indices de la tabla `tb_deptos`
 --
 ALTER TABLE `tb_deptos`
-  ADD PRIMARY KEY (`id_depto`);
+ ADD PRIMARY KEY (`id_depto`);
 
 --
--- Indexes for table `tb_personal`
+-- Indices de la tabla `tb_personal`
 --
 ALTER TABLE `tb_personal`
-  ADD PRIMARY KEY (`id_personal`);
+ ADD PRIMARY KEY (`id_personal`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `tb_deptos`
+-- AUTO_INCREMENT de la tabla `tb_deptos`
 --
 ALTER TABLE `tb_deptos`
-  MODIFY `id_depto` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id_depto` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `tb_personal`
+-- AUTO_INCREMENT de la tabla `tb_personal`
 --
 ALTER TABLE `tb_personal`
-  MODIFY `id_personal` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `id_personal` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

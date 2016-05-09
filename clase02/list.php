@@ -27,7 +27,9 @@ $data = $database->select("tb_personal", [
 		],[
 			"tb_personal.id_personal",
 			"tb_personal.nombre",
-			"tb_personal.apellido",
+            "tb_personal.apellido",
+            "tb_personal.gender",
+			"tb_personal.profile",
 			"tb_deptos.id_depto",
 			"tb_deptos.depto"
 		]);
@@ -39,12 +41,12 @@ $data = $database->select("tb_personal", [
     <head></head>
     <body>
         <table border="1">
-           <tr><td>Depto</td><td>Nombre</td><td>Apellido</td><td>Opciones</td></tr>
+           <tr><td>Depto</td><td>Nombre</td><td>Apellido</td><td>Perfil</td><td>Opciones</td></tr>
          
             <?php
                 $len = count($data);
                 for($i=0; $i<$len; $i++){
-                    echo  "<tr><td>".$data[$i]["depto"]."</td><td>".$data[$i]["nombre"]."</td><td>".$data[$i]["apellido"]."</td><td><a href='editar.php?id=".$data[$i]["id_personal"]."'>Editar</a> <a href='eliminar.php?id=".$data[$i]["id_personal"]."'>Eliminar</a></td></tr>";
+                    echo  "<tr><td>".$data[$i]["depto"]."</td><td>".$data[$i]["nombre"]."</td><td>".$data[$i]["apellido"]."</td><td><img width='64' height='64' src='".$data[$i]["profile"]."'/></td><td><a href='editar.php?id=".$data[$i]["id_personal"]."'>Editar</a> <a href='eliminar.php?id=".$data[$i]["id_personal"]."'>Eliminar</a></td></tr>";
                 }
             ?>
         </table>
